@@ -1,0 +1,11 @@
+id,title,description,super,classes
+ammaar,Ammaar,Ammaar Solkar,,root
+robotics,Robotics,Robotics,ammaar,main
+ros,ROS,Robot Operating System,robotics,
+gazebo,Gazebo,A physics simulator for Robotics,robotics,
+webdev,Front End Development,,ammaar,main
+htmlcss,HTML/CSS,Basic Stuff for website building,webdev,
+devops,DevOps,,ammaar,main
+docker,Docker,,devops,
+computervision,Computer Vision,Computer Vision,ammaar,main
+opencv,OpenCV,OpenCV,computervision,

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.20.0/cytoscape.min.js"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript" src="skilltree.js"></script>
+</head>
+<style>
+    #cy {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+</style>
+<body>
+    <div id="cy"></div>
+</body>
+<script>
+    console.log(skilltree);
+
+    var cy = cytoscape({
+
+    container: document.getElementById('cy'), // container to render in
+
+    elements: skilltree,
+
+    style: [ // the stylesheet for the graph
+        {
+            selector: 'node',
+            style: {
+                'shape': 'circle',
+                'background-color': 'green',
+                'label': 'data(title)'
+            },
+        },
+
+        {
+            selector: 'edge',
+            style: {
+                'width': 3,
+                'line-color': '#ccc',
+                'target-arrow-color': '#ccc',
+                'target-arrow-shape': 'triangle',
+                'curve-style': 'bezier'
+            }
+        },
+
+        {
+            selector: 'node.main',
+            style: {
+                'background-color': 'red',
+                'width': '2em',
+                'height': '2em'
+            }
+        },
+
+        {
+            selector: 'node.root',
+            style: {
+                'shape': 'circle',
+                'background-image': 'url("assets/AmmaarMinimalProfile.png")',
+                'background-image-containment': 'over',
+                'background-fit': 'contain',
+                'width': '4em',
+                'height': '4em'
+            }
+        }
+    ],
+    layout: {
+        name: 'cose',
+    }
+    });
+    cy.on('mouseover', 'node', function(event) {
+    var node = event.cyTarget;
+    node.qtip({
+            content: 'hello',
+            show: {
+                event: event.type,
+                ready: true
+            },
+            hide: {
+                event: 'mouseout unfocus'
+            }
+        }, event);
+    });
+</script>
+</html>
