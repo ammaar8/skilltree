@@ -19,11 +19,11 @@
     }
 </style>
 <body>
+    <h1>Hello There! This is still under construction and heavy experimentation!</h1>
+    <div id="tooltip"></div>
     <div id="cy"></div>
 </body>
 <script>
-    console.log(skilltree);
-
     var cy = cytoscape({
 
     container: document.getElementById('cy'), // container to render in
@@ -34,8 +34,10 @@
         {
             selector: 'node',
             style: {
-                'shape': 'circle',
                 'background-color': 'green',
+                'font-size': '0.4em',
+                'width': '0.9em',
+                'height': '0.9em',
                 'label': 'data(title)'
             },
         },
@@ -55,39 +57,45 @@
             selector: 'node.main',
             style: {
                 'background-color': 'red',
-                'width': '2em',
-                'height': '2em'
+                'width': '1.2em',
+                'height': '1.2em'
             }
         },
 
         {
             selector: 'node.root',
             style: {
-                'shape': 'circle',
                 'background-image': 'url("assets/AmmaarMinimalProfile.png")',
                 'background-image-containment': 'over',
                 'background-fit': 'contain',
-                'width': '4em',
-                'height': '4em'
+                'width': '2em',
+                'height': '2em'
             }
         }
     ],
     layout: {
         name: 'cose',
+        zoom: 1,
     }
     });
     cy.on('mouseover', 'node', function(event) {
-    var node = event.cyTarget;
-    node.qtip({
-            content: 'hello',
-            show: {
-                event: event.type,
-                ready: true
-            },
-            hide: {
-                event: 'mouseout unfocus'
-            }
-        }, event);
+        let element = document.createElement("p");
+        element.id="hoverdata";
+        element.style.position = 'absolute';
+        element.style.left = event.target.renderedPosition()['x'].toString() + 'px';
+        element.style.top = event.target.renderedPosition()['y'].toString() + 'px';
+        element.style.zIndex = 10;
+        let text = document.createTextNode(event.target.data()['description']);
+        element.appendChild(text);
+        let c = document.getElementById("tooltip");
+        c.appendChild(element);
     });
+
+    cy.on('mouseout', 'node', function(event) {
+        let element = document.getElementById("hoverdata");
+        element.remove();
+    });
+
+    cy
 </script>
 </html>
