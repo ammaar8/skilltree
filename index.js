@@ -51,7 +51,7 @@ function createCard(event){
     title.classList.add("card-title-font");
     // Add close button
     let closeButton = document.createElement("span");
-    closeButton.classList.add('d-md-none', 'material-icons', 'close-button');
+    closeButton.classList.add('d-xl-none', 'material-icons', 'close-button');
     closeButton.addEventListener("click", () => {document.getElementById("hoverdata").remove()});
     closeButton.appendChild(document.createTextNode("close"));
 
