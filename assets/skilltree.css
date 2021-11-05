@@ -1,7 +1,7 @@
 .skilltree-card {
     position : absolute;
     z-index : 10;
-    width : 260px;
+    width : 300px;
 }
 
 .skilltree-card p {
@@ -10,6 +10,11 @@
 
 .close-button {
     float: right;
+}
+
+.nav-link {
+    font-size: smaller;
+    padding: 0.6em 1em;
 }
 
 @media screen and (max-width: 600px){

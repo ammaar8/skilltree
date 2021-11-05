@@ -3,6 +3,41 @@ function createElement(type, content, classList=[]){
     element
 }
 
+function createTabs(){
+    let navbar = document.createElement("ul");
+    navbar.classList.add("nav", "nav-pills", "nav-fill");
+    navbar.setAttribute("role", "tablist");
+
+    // Add buttons
+    let tabNames = ["Summary", "Projects", "Notes"];
+
+    for (let tab in tabNames){
+        let ele = document.createElement("li");
+        ele.classList.add("nav-item");
+        ele.setAttribute("role", "presentation");
+
+        let btn = document.createElement("button");
+        btn.classList.add("nav-link");
+        btn.id = "pills-" + tabNames[tab].toLowerCase() + '-tab';
+        btn.setAttribute('data-bs-toggle', 'pill');
+        btn.setAttribute('data-bs-target', '#pill-' + tabNames[tab].toLowerCase());
+        btn.setAttribute("type", "button");
+        btn.setAttribute("role", "tab");
+        btn.setAttribute("aria-controls", "pills-profile");
+        if (tabNames[tab] === "Summary"){
+            btn.classList.add("active");
+            btn.setAttribute("aria-selected", "true");
+        }
+        btn.appendChild(document.createTextNode(tabNames[tab]));
+        ele.appendChild(btn);
+        navbar.appendChild(ele);
+    }
+    navbar.style.position = "relative";
+    navbar.style.bottom = "0px";
+    return navbar;
+    // Add tabs -> Add in the createCard function
+}
+
 function createCard(event){
     // Create Card
     let card = document.createElement("div");
@@ -12,7 +47,7 @@ function createCard(event){
     let cardBody = document.createElement("div");
     cardBody.classList.add("card-body")
     // Add Title
-    let title = document.createElement("h6");
+    let title = document.createElement("h5");
     title.classList.add("card-title-font");
     // Add close button
     let closeButton = document.createElement("span");
@@ -30,9 +65,15 @@ function createCard(event){
     cardBody.appendChild(description);
     // Add Photo
     // Add Links
+    // Add tabs
+    let cardFooter = document.createElement("div");
+    cardFooter.classList.add("card-footer");
+
+    cardFooter.appendChild(createTabs());
 
     card.appendChild(cardBody);
-    card.style.left = (event.target.renderedPosition()['x'] - 130).toString() + 'px';
+    card.appendChild(cardFooter);
+    card.style.left = (event.target.renderedPosition()['x'] - 150).toString() + 'px';
     card.style.top = (event.target.renderedPosition()['y'] - 50).toString() + 'px';
     let c = document.getElementById("tooltip");
     c.appendChild(card);
