@@ -82,14 +82,10 @@
         zoom: 1,
     }
     });
+
     cy.on('mouseover', 'node', (event) => createCard(event));
-
     cy.on('tap', 'node', (event) => createCard(event));
-
-    cy.on('mouseout', 'node', function(event) {
-        let element = document.getElementById("hoverdata");
-        element.remove();
-    });
+    cy.on('mouseout', 'node', (event) => deleteCard(event));
 
 </script>
 </html>

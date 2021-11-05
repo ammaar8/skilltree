@@ -38,8 +38,26 @@ function createTabs(){
     // Add tabs -> Add in the createCard function
 }
 
+function deleteCard(event){
+    let element = document.getElementById("hoverdata");
+    element.classList.add("skilltree-card--delete");
+    Promise.all(
+        element.getAnimations().map(
+        function(animation) {
+            return animation.finished
+        }
+    )
+    ).then(
+        function() {
+            return element.remove();
+        }
+    );
+}
+
 function createCard(event){
     // Create Card
+    // Remove any card if there is an old one
+    document.querySelectorAll('#hoverdata').forEach(e => e.remove());
     let card = document.createElement("div");
     card.id = "hoverdata";
     card.classList.add("skilltree-card", "card", "shadow");
@@ -52,7 +70,22 @@ function createCard(event){
     // Add close button
     let closeButton = document.createElement("span");
     closeButton.classList.add('d-xl-none', 'material-icons', 'close-button');
-    closeButton.addEventListener("click", () => {document.getElementById("hoverdata").remove()});
+    
+    closeButton.addEventListener("click", () => {
+        let element = document.getElementById("hoverdata");
+        element.classList.add("skilltree-card--delete");
+        Promise.all(
+            element.getAnimations().map(
+            function(animation) {
+                return animation.finished
+            }
+        )
+        ).then(
+            function() {
+                return element.remove();
+            }
+        );
+    });
     closeButton.appendChild(document.createTextNode("close"));
 
     title.appendChild(document.createTextNode(event.target.data()['title']));
@@ -74,7 +107,7 @@ function createCard(event){
     card.appendChild(cardBody);
     card.appendChild(cardFooter);
     card.style.left = (event.target.renderedPosition()['x'] - 150).toString() + 'px';
-    card.style.top = (event.target.renderedPosition()['y'] - 50).toString() + 'px';
+    card.style.top = (event.target.renderedPosition()['y']).toString() + 'px';
     let c = document.getElementById("tooltip");
     c.appendChild(card);
 }

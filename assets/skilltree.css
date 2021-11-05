@@ -2,6 +2,11 @@
     position : absolute;
     z-index : 10;
     width : 300px;
+    animation: open-card .25s;
+}
+
+.skilltree-card--delete {
+    animation: close-card .25s;
 }
 
 .skilltree-card p {
@@ -27,5 +32,28 @@
         margin: auto;
         width: 75%;
         max-height: 80%;
+        animation: open-card .25s;
+    }
+    .skilltree-card--delete {
+        animation: close-card .25s;
+    }
+}
+
+@keyframes open-card {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+@keyframes close-card {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
     }
 }
