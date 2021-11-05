@@ -1,0 +1,26 @@
+.skilltree-card {
+    position : absolute;
+    z-index : 10;
+    width : 260px;
+}
+
+.skilltree-card p {
+    font-size: smaller;
+}
+
+.close-button {
+    float: right;
+}
+
+@media screen and (max-width: 600px){
+    .skilltree-card {
+        position: absolute;
+        top:0!important;
+        bottom: 0;
+        left: 0!important;
+        right: 0;
+        margin: auto;
+        width: 75%;
+        max-height: 80%;
+    }
+}

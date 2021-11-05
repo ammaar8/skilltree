@@ -1,5 +1,5 @@
 id,title,description,super,classes
-ammaar,Ammaar,Ammaar Solkar,,root
+ammaar,Ammaar Solkar,Ammaar Solkar,,root
 robotics,Robotics,Robotics,ammaar,main
 ros,ROS,Robot Operating System,robotics,
 gazebo,Gazebo,A physics simulator for Robotics,robotics,

@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.20.0/cytoscape.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="index.js"></script>
     <script type="text/javascript" src="skilltree.js"></script>
+    <link rel="stylesheet" href="assets/skilltree.css">
 </head>
 <style>
     #cy {
@@ -22,6 +26,9 @@
     <h1>Hello There! This is still under construction and heavy experimentation!</h1>
     <div id="tooltip"></div>
     <div id="cy"></div>
+
+    <template id="hoverdata">
+    </template>
 </body>
 <script>
     var cy = cytoscape({
@@ -78,24 +85,14 @@
         zoom: 1,
     }
     });
-    cy.on('mouseover', 'node', function(event) {
-        let element = document.createElement("p");
-        element.id="hoverdata";
-        element.style.position = 'absolute';
-        element.style.left = event.target.renderedPosition()['x'].toString() + 'px';
-        element.style.top = event.target.renderedPosition()['y'].toString() + 'px';
-        element.style.zIndex = 10;
-        let text = document.createTextNode(event.target.data()['description']);
-        element.appendChild(text);
-        let c = document.getElementById("tooltip");
-        c.appendChild(element);
-    });
+    cy.on('mouseover', 'node', (event) => createCard(event));
+
+    cy.on('tap', 'node', (event) => createCard(event));
 
     cy.on('mouseout', 'node', function(event) {
         let element = document.getElementById("hoverdata");
         element.remove();
     });
 
-    cy
 </script>
 </html>
