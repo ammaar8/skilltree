@@ -1,7 +1,8 @@
 .skilltree-card {
     position : absolute;
     z-index : 10;
-    width : 300px;
+    width : 260px;
+    height: 340px;
     animation: open-card .25s;
 }
 

@@ -106,8 +106,8 @@ function createCard(event){
 
     card.appendChild(cardBody);
     card.appendChild(cardFooter);
-    card.style.left = (event.target.renderedPosition()['x'] - 150).toString() + 'px';
-    card.style.top = (event.target.renderedPosition()['y']).toString() + 'px';
+    card.style.left = (event.target.renderedPosition()['x'] - 130).toString() + 'px';
+    card.style.top = (event.target.renderedPosition()['y'] - 170).toString() + 'px';
     let c = document.getElementById("tooltip");
     c.appendChild(card);
 }
