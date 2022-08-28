@@ -4,9 +4,33 @@ robotics,Robotics,Robotics,ammaar,main
 ros,ROS,Robot Operating System,robotics,
 gazebo,Gazebo,A physics simulator for Robotics,robotics,
 webdev,Front End Development,,ammaar,main
-htmlcss,HTML/CSS,Basic Stuff for website building,webdev,
+bootstrap,Bootstrap,Bootstrap,webdev,
 devops,DevOps,,ammaar,main
+digitalocean,Digital Ocean,,devops,
+nginx,Nginx,,devops,
 docker,Docker,,devops,
 computervision,Computer Vision,Computer Vision,ammaar,main
 opencv,OpenCV,OpenCV,computervision,
 probabilisticrobotics,Probabilistic Robotics,Probabilistic Robotics,robotics,
+telemetry,Telemetry,,ammaar,main
+grafana,Grafana,,telemetry,
+prometheus,Prometheus,,telemetry,
+loki,Loki,,telemetry,
+sre,SRE,,ammaar,main
+sre_book,Site Reliability Engineering,,sre,book
+ruby,Ruby,,languages,main
+ror,Ruby on Rails,,ruby,
+python,Python,,languages,main
+dash,Dash,,python,
+plotly,Plotly,,python,
+pandas,Pandas,,python,
+databases,Databases,,ammaar,main
+mysql,MySQL,,databases,
+influxdb,InfluxDB,,databases,
+redis,Redis,,databases,
+languages,Programming Languages,,ammaar,main
+golang,Golang,,languages,main
+javascript, JavaScript,,languages,main
+nodejs,Node.js,,javascript,
+react,React,,javascript,
+syslog,Syslog,,telemetry,

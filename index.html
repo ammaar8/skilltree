@@ -83,7 +83,6 @@
     }
     });
 
-    cy.on('mouseover', 'node', (event) => createCard(event));
     cy.on('tap', 'node', (event) => createCard(event));
     cy.on('mouseout', 'node', (event) => deleteCard(event));
 

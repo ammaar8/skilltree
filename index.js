@@ -123,4 +123,4 @@ function showDescription(event) {
     element.appendChild(text);
     let c = document.getElementById("tooltip");
     c.appendChild(element);
-}
+}}
