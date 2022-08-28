@@ -34,3 +34,8 @@ javascript, JavaScript,,languages,main
 nodejs,Node.js,,javascript,
 react,React,,javascript,
 syslog,Syslog,,telemetry,
+methodologies,Methodologies,,ammaar,main
+systemdesign,System Design,,methodologies,
+dda,Designing Data-Intensive Applications,,systemdesign,book
+testing,Testing,,methodologies,
+unittesting,Unit Testing,,testing,
